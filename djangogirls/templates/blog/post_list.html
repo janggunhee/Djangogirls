@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--정적파일음 참조하는 템플릿 static태그 (STATICFILRES_DIRS의 path 기준으로 상대경로-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css.bootstrap.css' %}"
+    <title>Post list</title>
 </head>
 <body>
-$END$
+    <h1>Post List</h1>
+<!-- django Template 언어 -->
+
+    {% for post in posts %}
+         <div>{{post.title}}</div>
+         <div>{{post.content|linebreaksbr|truncatewords:50}}</div>
+    {% endfor %}
+
 </body>
 </html>
