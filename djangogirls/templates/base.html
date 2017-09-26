@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--정적파일을 참조하는 템플릿 static태그 (STATICFILES_DIRS의 path를 기준으로 상대경로)-->
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<title>janggunhee</title>
+</head>
+<body>
+    <div class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">
+                <a href="">jang gun hee BLOG</a>
+            </h1>
+        </div>
+    </div>
+    <div class="container">
+		<!--하나의 'Post'만 출력하도록 변경 (post변수 사용)-->
+		<!--해당 Post는 content를 전부 출력해야함 -->
+        {% block content %}
+        {% endblock %}
+	</div>
+</body>
+</html>

@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import post_list
+
+from blog.views import post_list, post_detail, post_add
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls), # admin으로 시작하고/ 일치하면 실행을 한다.
-    url(r'^$', post_list) # urlresolve
+    url(r'^$', post_list), # urlresolve
+
+    url(r'^post/(?P<pk>\d+)/', post_detail, name='post_detail'),
+    url(r'^post/add/', post_add, name='add'),
 ]

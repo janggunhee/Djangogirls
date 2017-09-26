@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-container">
+	<a class="btn btn-default btn-sm btn-back-list" href="/">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		목록으로 돌아가기
+	</a>
+<!--하나의 'Post'만 출력하도록 변경 (post변수 사용)-->
+<!--해당 Post는 content를 전부 출력해야함 -->
+	<div class="post">
+		<h4 class="post-title">{{ post.title }}</h4>
+		<p class="content">{{ post.content|linebreaksbr }}</p>
+		<p class="right-text">{{ post.published_date }} | <strong>Published</strong></p>
+		<p class="right-text">{{ post.author.username }} | <strong>Author</strong></p>
+	</div>
+</div>

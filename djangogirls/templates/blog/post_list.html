@@ -1,22 +1,17 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--정적파일음 참조하는 템플릿 static태그 (STATICFILRES_DIRS의 path 기준으로 상대경로-->
-    <link rel="stylesheet" href="{% static 'bootstrap/css.bootstrap.css' %}"
-    <title>Post list</title>
-</head>
-<body>
-    <h1>Post List</h1>
-<!-- django Template 언어 -->
+{% extends 'base.html' %}
+<!--'base.html'템플릿을 확장한다-->
 
-    {% for post in posts %}
-         <div>{{post.title}}</div>
-         <div>{{post.content|linebreaksbr|truncatewords:50}}</div>
-    {% endfor %}
-
-</body>
-</html>
+<!--'base.html'템플릿의 'content'블록을 채운다-->
+{% block content %}
+<div class="post-container">
+	{% for post in posts %}
+	<div class="post">
+        <!--{{post.pk}}를 이용해서  a tag의 href 속성을 채우세요-->
+        <h3 class="post-title"><a href="{% url 'post_detail' pk=post.pk %">{{ post.title }}</a></h3>
+		<p class="content">{{ post.content|linebreaksbr|truncatewords:20 }}</p>
+		<p class="right-text">{{ post.published_date }} | <strong>Published</strong></p>
+		<p class="right-text">{{ post.author.username }} | <strong>Author</strong></p>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
