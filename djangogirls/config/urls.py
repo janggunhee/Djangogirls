@@ -19,9 +19,11 @@ from django.contrib import admin
 from blog.views import post_list, post_detail, post_add
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls), # admin으로 시작하고/ 일치하면 실행을 한다.
-    url(r'^$', post_list), # urlresolve
-
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', post_list),
+    # post/<숫자1개이상>/ 이 가능하도록 정규표현식 작성
+    # 해당 숫자는 그룹으로 감싸고 'pk'라는 그룹명을 지정
+    # post/3/ -> post_detail(pk=3)
     url(r'^post/(?P<pk>\d+)/', post_detail, name='post_detail'),
-    url(r'^post/add/', post_add, name='add'),
+    url(r'^post/add/', post_add, name='post_add'),
 ]

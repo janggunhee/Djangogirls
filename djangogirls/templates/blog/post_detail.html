@@ -1,5 +1,6 @@
-
 {% extends 'base.html' %}
+
+{% block title %}글 상세보기 ({{ post.title }}){% endblock %}
 
 {% block content %}
 <div class="post-container">
@@ -16,3 +17,4 @@
 		<p class="right-text">{{ post.author.username }} | <strong>Author</strong></p>
 	</div>
 </div>
+{% endblock %}
