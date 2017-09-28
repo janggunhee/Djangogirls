@@ -1,3 +1,6 @@
+body {
+padding-bottom:30px:
+}
 .blog-header {
     background-color: #7cb4e4;
     padding-top: 20px;
@@ -5,6 +8,7 @@
     width: 100%;
 }
 .blog-header .blog-title {
+    float: left;
     margin: 0;
 }
 .blog-header .blog-title > a,
@@ -13,12 +17,23 @@
     color: white;
     text-decoration: none;
 }
+.blog-header .header-right > a,
+.blog-header .header-right > a:hover,
+.blog-header .header-right > a:visited {
+    color: white;
+    text-decoration: none;
+    line-height: 33px;
+ }
+
+.main-container {
+    padding-top:10px:
+}
 
 .post-container {
 
 }
 .post-container > .btn-back-list {
-    margin-top: 10px;
+l    margin-top: 10px;
 }
 
 .post-container > .post {

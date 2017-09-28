@@ -9,21 +9,23 @@
 	<!--정적파일을 참조하는 템플릿 static태그 (STATICFILES_DIRS의 path를 기준으로 상대경로)-->
 	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link rel="stylesheet" href="/static/css/blog.css">
 	<title>janggunhee</title>
 </head>
 <body>
-    <div class="blog-header">
-        <div class="container">
-            <h1 class="blog-title">
-                <a href="">jang gun hee BLOG</a>
-            </h1>
-        </div>
-    </div>
-    <div class="container">
-		<!--하나의 'Post'만 출력하도록 변경 (post변수 사용)-->
-		<!--해당 Post는 content를 전부 출력해야함 -->
-        {% block content %}
-        {% endblock %}
+	<div class="blog-header">
+		<div class="container">
+			<h2 class="blog-title"><a href="{% url 'post_list' %}">{% block title %}lhy's blog{% endblock %}</a></h2>
+			<div class="header-right">
+				<a href="{% url 'post_add' %}">+ Add post</a>
+			</div>
+		</div>
+	</div>
+	<div class="container main-container">
+		<!--'content'라는 이름으로 block구역 지정-->
+		<!--이 템플릿을 확장한 다른 템플릿에서 이 block을 채우는 형태로 사용-->
+		{% block content %}
+		{% endblock %}
 	</div>
 </body>
 </html>
